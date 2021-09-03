@@ -77,6 +77,24 @@ section {
     align-items: center;
     flex-wrap: wrap;
 }
+.navbar__menu{
+    transition: 0.5s;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.active__navbar__menu{
+    max-height: 50px;
+    height: 100px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
 
 .navbar__menu li {
     display: inline-block;
@@ -109,6 +127,34 @@ section {
     width: 100%;
     z-index: 5;
 }
+
+#top {
+    position: fixed;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgb(2, 66, 95);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top{
+    right: -100px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.fa__active{
+    right: 25px;
+}
+
 
 /* Footer Styles */
 .page__footer {

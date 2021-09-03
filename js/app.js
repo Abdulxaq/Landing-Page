@@ -1,34 +1,3 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
-
-/**
- * Define Global Variables
- * 
-*/
-    const navList = document.getElementById('navbar__list');
-    const navLinks = document.getElementsByClassName('menu__link')
-    const body = document.getElementById('body')
-    const sectionNum = 4;
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
 //***** **********   ********* ****   ************ **********   *** ****   ******* ***   ***** ************   ***********************************************************
 //***** **********   ********* ****   ************ **********   *** ****   ***** ***   ******* ************   **********************************************************
 //******** ****   ************ ****   *************** ****   ****** ****   *** ***   ********* ****   *****************************************************************
@@ -51,6 +20,62 @@
 //***** ****    * ****   *** ****    ****   ***** *** ******* ***   ***** ****    ***   ****** ****   ************ ****   **************** ****   **********************
 //******* **** * ***   ***** **********   ****** ***   ******* ***   ****** ********   ***** *********   ********* ****   *************** *****  *********************
 //********* ******   ******* ********   ******* ***   ********* ***   ******* ****   ******* *********   ********* ****   ************ *********   *****************
+/**
+ * 
+ * Manipulating the DOM exercise.
+ * Exercise programmatically builds navigation,
+ * scrolls to anchors from navigation,
+ * and highlights section in viewport upon scrolling.
+ * 
+ * Dependencies: None
+ * 
+ * JS Version: ES2015/ES6
+ * 
+ * JS Standard: ESlint
+ * 
+*/
+
+/**
+ * Define Global Variables
+ * 
+*/
+    const navList = document.getElementById('navbar__list');
+    const navMenu = document.getElementById('nav__menu');
+    const navLinks = document.getElementsByClassName('menu__link');
+    const body = document.getElementById('body');
+    const main = document.getElementById('main');
+    const topp = document.getElementById('top');
+    const sectionNum = 4;
+    var show = true;
+
+/**
+ * End Global Variables
+ * Start Helper Functions
+ * 
+*/
+
+
+
+
+//  function to toggle nav bar when document is scrolled
+
+    function toggleNavbar(){
+        setTimeout(() => {
+            navMenu.classList.add('active__navbar__menu');
+        }, 500);
+            setTimeout(() => {
+                navMenu.classList.remove('active__navbar__menu');
+        }, 4000);
+        if (body.scrollTop >= 300) {
+            topp.classList.add("fa__active")
+        }else{
+            topp.classList.remove("fa__active")
+        }
+
+    }
+
+
+
 
 
 
@@ -92,7 +117,7 @@
  * 
 */
     // event to scroll top for 100 
-    document.addEventListener('click', ()=>{
+    main.addEventListener('click', ()=>{
         body.scrollTop += 100;
     })
 
@@ -107,8 +132,21 @@
             el.classList.add('active__section');
         })
     }
+    
+    
+    document.addEventListener('scroll', toggleNavbar);
+    
+    topp.addEventListener("click" , ()=>{
+        body.scrollTop = 0
+        console.log("hello");
+    })
 
 
 
 
-
+// body.addEventListener('scroll', ()=>{
+//     setTimeout(() => {
+//         navMenu.classList.toggle('active__navbar__menu');
+//         console.log("hello");
+//     }, 500);
+// });
