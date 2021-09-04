@@ -42,6 +42,10 @@
     const navList = document.getElementById('navbar__list');
     const navMenu = document.getElementById('nav__menu');
     const navLinks = document.getElementsByClassName('menu__link');
+    const sec1 = document.getElementById('section1');
+    const sec2 = document.getElementById('section2');
+    const sec3 = document.getElementById('section3');
+    const sec4 = document.getElementById('section4');
     const body = document.getElementById('body');
     const main = document.getElementById('main');
     const topp = document.getElementById('top');
@@ -59,6 +63,17 @@
 
 //  function to toggle nav bar when document is scrolled
 
+
+    function activeSectionLink(n){
+        for (let d = 0; d < sectionNum; d++) {
+            let el = document.getElementById(`sectionLink${d+1}`);
+            el.classList.remove('activeSectionLink');
+        }
+        let el = document.getElementById(`sectionLink${n}`);
+        el.classList.add("activeSectionLink");
+    }
+
+
     function toggleNavbar(){
         setTimeout(() => {
             navMenu.classList.add('active__navbar__menu');
@@ -72,11 +87,23 @@
             topp.classList.remove("fa__active")
         }
 
+        if (body.scrollTop >= 471) {
+            activeSectionLink(1);
+        } if(body.scrollTop >= 1042){
+            activeSectionLink(2);
+        } if(body.scrollTop >= 1612){
+            activeSectionLink(3);
+        } if(body.scrollTop >= 2183){
+            activeSectionLink(4);
+        }
+
     }
 
 
-
-
+// 471
+// 1042
+// 1612
+// 2183
 
 
 /**
@@ -101,6 +128,8 @@
             // Scroll to anchor ID using scrollTO event
 
             a.setAttribute('href', `#section${i+1}`);
+
+            li.setAttribute('id', `sectionLink${i+1}`);
 
             // appending elements   UL > A > LI
 
