@@ -117,7 +117,7 @@ section {
 
 .activeSectionLink{
     background: #333;
-    color: white;
+    color: white !important ;
 }
 
 .active_menu_link{
